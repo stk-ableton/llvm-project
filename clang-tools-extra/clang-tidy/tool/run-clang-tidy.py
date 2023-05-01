@@ -210,7 +210,8 @@ def run_tidy(args, clang_tidy_binary, tmpdir, build_path, queue, lock,
         err += msg.encode('utf-8')
       failed_files.append(name)
     with lock:
-      sys.stdout.write(' '.join(invocation) + '\n' + output.decode('utf-8'))
+      if not args.quiet:
+        sys.stdout.write(' '.join(invocation) + '\n' + output.decode('utf-8'))
       if len(err) > 0:
         sys.stdout.flush()
         sys.stderr.write(err.decode('utf-8'))
