@@ -7106,6 +7106,8 @@ ExpectedStmt ASTNodeImporter::VisitDeclRefExpr(DeclRefExpr *E) {
       E->getValueKind(), ToFoundD, ToResInfo, E->isNonOdrUse());
   if (E->hadMultipleCandidates())
     ToE->setHadMultipleCandidates(true);
+  if (E->refersToImplicitCapture())
+    ToE->setRefersToImplicitCapture(true);
   return ToE;
 }
 

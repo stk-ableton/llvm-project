@@ -1046,6 +1046,8 @@ void TextNodeDumper::VisitDeclRefExpr(const DeclRefExpr *Node) {
   case NOUR_Constant: OS << " non_odr_use_constant"; break;
   case NOUR_Discarded: OS << " non_odr_use_discarded"; break;
   }
+  if (Node->refersToImplicitCapture())
+    OS << " implicit_capture";
 }
 
 void TextNodeDumper::VisitUnresolvedLookupExpr(

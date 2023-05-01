@@ -357,6 +357,8 @@ void RenamerClangTidyCheck::check(const MatchFinder::MatchResult &Result) {
   }
 
   if (const auto *DeclRef = Result.Nodes.getNodeAs<DeclRefExpr>("declRef")) {
+    if (DeclRef->refersToImplicitCapture())
+      return;
     SourceRange Range = DeclRef->getNameInfo().getSourceRange();
     addUsage(DeclRef->getDecl(), Range, Result.SourceManager);
     return;

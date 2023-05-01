@@ -1436,6 +1436,14 @@ public:
     return DeclRefExprBits.RefersToEnclosingVariableOrCapture;
   }
 
+  bool refersToImplicitCapture() const {
+    return DeclRefExprBits.RefersToImplicitCapture;
+  }
+
+  bool setRefersToImplicitCapture(bool V = true) {
+    return DeclRefExprBits.RefersToImplicitCapture = V;
+  }
+
   static bool classof(const Stmt *T) {
     return T->getStmtClass() == DeclRefExprClass;
   }

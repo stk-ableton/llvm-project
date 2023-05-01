@@ -1803,6 +1803,8 @@ ExprResult Sema::BuildCaptureInit(const Capture &Cap,
     return ExprError();
 
   Expr *InitExpr = Init.get();
+  if (Cap.isVariableCapture() && ImplicitCaptureLoc.isValid())
+    cast<DeclRefExpr>(InitExpr)->setRefersToImplicitCapture(true);
   InitializedEntity Entity = InitializedEntity::InitializeLambdaCapture(
       Name, Cap.getCaptureType(), Loc);
   InitializationKind InitKind =

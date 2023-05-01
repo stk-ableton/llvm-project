@@ -707,3 +707,24 @@ public:
 task ImplicitDeclTest(async_obj &a_object) {
   co_await a_object;  // CHECK-MESSAGES-NOT: warning: invalid case style for local variable
 }
+
+// CHECK-MESSAGES: :[[@LINE+2]]:21: warning: invalid case style for parameter 'Param'
+// CHECK-MESSAGES: :[[@LINE+1]]:32: warning: invalid case style for parameter 'Param2'
+void LambdaTest(int Param, int Param2) {
+  (void)[Param]() { return Param; };
+  (void)[&Param]() { return Param; };
+  (void)[=]() { return Param; };
+  (void)[&]() { return Param; };
+  (void)[=]() { return Param + Param2; };
+  (void)[=, &Param]() { return Param + Param2; };
+  (void)[=, Param(Param)]() { return Param + Param2; };
+  // CHECK-MESSAGES: :[[@LINE-1]]:13: warning: invalid case style for local variable 'Param'
+  // CHECK-FIXES: void LambdaTest(int a_param, int a_param2) {
+  // CHECK-FIXES-NEXT:   (void)[a_param]() { return a_param; };
+  // CHECK-FIXES-NEXT:   (void)[&a_param]() { return a_param; };
+  // CHECK-FIXES-NEXT:   (void)[=]() { return a_param; };
+  // CHECK-FIXES-NEXT:   (void)[&]() { return a_param; };
+  // CHECK-FIXES-NEXT:   (void)[=]() { return a_param + a_param2; };
+  // CHECK-FIXES-NEXT:   (void)[=, &a_param]() { return a_param + a_param2; };
+  // CHECK-FIXES-NEXT:   (void)[=, param(a_param)]() { return param + a_param2; };
+}
