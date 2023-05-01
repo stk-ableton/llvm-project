@@ -259,6 +259,7 @@ Clang-Tidy Checks
    `misc-no-recursion <misc/no-recursion.html>`_,
    `misc-non-copyable-objects <misc/non-copyable-objects.html>`_,
    `misc-non-private-member-variables-in-classes <misc/non-private-member-variables-in-classes.html>`_,
+   `misc-prefix-optionals <misc/prefix-optionals.html>`_, "Yes"
    `misc-redundant-expression <misc/redundant-expression.html>`_, "Yes"
    `misc-static-assert <misc/static-assert.html>`_, "Yes"
    `misc-throw-by-value-catch-by-reference <misc/throw-by-value-catch-by-reference.html>`_,
@@ -478,7 +479,7 @@ Clang-Tidy Checks
    `cppcoreguidelines-explicit-virtual-functions <cppcoreguidelines/explicit-virtual-functions.html>`_, `modernize-use-override <modernize/use-override.html>`_, "Yes"
    `cppcoreguidelines-macro-to-enum <cppcoreguidelines/macro-to-enum.html>`_, `modernize-macro-to-enum <modernize/macro-to-enum.html>`_, "Yes"
    `cppcoreguidelines-non-private-member-variables-in-classes <cppcoreguidelines/non-private-member-variables-in-classes.html>`_, `misc-non-private-member-variables-in-classes <misc/non-private-member-variables-in-classes.html>`_,
-   `cppcoreguidelines-use-default-member-init <cppcoreguidelines/use-default-member-init.html>`_, `modernize-use-default-member-init <modernize/use-default-member-init.html>`_,
+   `cppcoreguidelines-use-default-member-init <cppcoreguidelines/use-default-member-init.html>`_, `modernize-use-default-member-init <modernize/use-default-member-init.html>`_, "Yes"
    `fuchsia-header-anon-namespaces <fuchsia/header-anon-namespaces.html>`_, `google-build-namespaces <google/build-namespaces.html>`_,
    `google-readability-braces-around-statements <google/readability-braces-around-statements.html>`_, `readability-braces-around-statements <readability/braces-around-statements.html>`_, "Yes"
    `google-readability-function-size <google/readability-function-size.html>`_, `readability-function-size <readability/function-size.html>`_,

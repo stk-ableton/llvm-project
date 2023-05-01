@@ -144,6 +144,11 @@ New checks
   Checks that all implicit and explicit inline functions in header files are
   tagged with the ``LIBC_INLINE`` macro.
 
+- New :doc:`misc-prefix-optionals
+  <clang-tidy/checks/misc/prefix-optionals>` check.
+
+  FIXME: add release notes.
+
 - New :doc:`modernize-type-traits
   <clang-tidy/checks/modernize/type-traits>` check.
 
