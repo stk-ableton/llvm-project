@@ -61,7 +61,8 @@ PrefixOptionalsCheck::getDeclFailureInfo(const NamedDecl *Decl,
   const auto Kind = Decl->getKind();
   if (Kind == Decl::Kind::ParmVar || Kind == Decl::Kind::Var ||
       Kind == Decl::Kind::Field) {
-    auto Type = static_cast<const ValueDecl *>(Decl)->getType();
+    auto Type =
+        static_cast<const ValueDecl *>(Decl)->getType().getNonReferenceType();
     if (const auto *TS = Type->getAs<TemplateSpecializationType>()) {
       if (const auto *TD = TS->getTemplateName().getAsTemplateDecl()) {
         // First use the fast getName() method to avoid unnecessary calls to the
