@@ -35,6 +35,14 @@ std::string newName(const llvm::StringRef &OldName) {
     return std::string{"mo"} + OldName.substr(6).str();
   }
 
+  if (hasPrefix(OldName, "p")) {
+    return std::string{"o"} + OldName.substr(1).str();
+  }
+
+  if (hasPrefix(OldName, "mp")) {
+    return std::string{"mo"} + OldName.substr(2).str();
+  }
+
   if (hasPrefix(OldName, "m")) {
     return std::string{"mo"} + OldName.substr(1).str();
   }
